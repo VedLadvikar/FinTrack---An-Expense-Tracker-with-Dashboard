@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { LuX } from "react-icons/lu";
 
-
 export default function Modal({ isOpen, onClose, title, children, maxWidth = "max-w-lg" }) {
 
     useEffect(() => {
@@ -26,26 +25,25 @@ export default function Modal({ isOpen, onClose, title, children, maxWidth = "ma
             onClick={onClose}
         >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-[#1f1f1f]/40 backdrop-blur-sm" />
 
-            {/* Modal content */}
+            {/* Modal panel */}
             <div
-                className={`relative w-full ${maxWidth} glass-card p-6 animate-slide-up`}
+                className={`relative w-full ${maxWidth} bg-[#faf9f7] border border-[#ece7e2] rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] p-6 animate-slide-up`}
                 onClick={(e) => e.stopPropagation()}
+                style={{ animation: "slide-up 0.25s ease-out" }}
             >
                 <div className="flex items-center justify-between mb-5">
-                    <h2 className="text-lg font-semibold text-black-50">
+                    <h2 className="text-base font-semibold text-[#1f1f1f]">
                         {title}
                     </h2>
                     <button
                         onClick={onClose}
-                        className="p-1.5 rounded-lg hover:bg-jet-black-800 text-black-400 hover:text-black-50 transition-colors cursor-pointer"
+                        className="p-1.5 rounded-lg hover:bg-[#ece7e2] text-[#7c7c7c] hover:text-[#1f1f1f] transition-colors cursor-pointer"
                     >
-                        <LuX className="w-5 h-5" />
+                        <LuX className="w-4 h-4" />
                     </button>
                 </div>
-
-                {/* Body */}
                 {children}
             </div>
         </div>

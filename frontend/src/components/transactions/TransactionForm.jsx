@@ -57,17 +57,17 @@ export default function TransactionForm({ initialData, onSubmit, onCancel, loadi
         <form onSubmit={handleSubmit} className="space-y-4">
             {/* Type Toggle */}
             <div>
-                <label className="text-sm font-medium text-black-200 mb-2 block">
+                <label className="text-sm font-medium text-[#1f1f1f] mb-2 block">
                     Type
                 </label>
                 <div className="flex gap-2">
                     <button
                         type="button"
                         onClick={() => handleTypeChange("income")}
-                        className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer ${
+                        className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer border ${
                             formData.type === "income"
-                                ? "bg-income/15 text-income border border-income/30"
-                                : "bg-jet-black-900 text-black-400 border border-jet-black-800 hover:bg-jet-black-800"
+                                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                                : "bg-[#faf9f7] text-[#7c7c7c] border-[#ece7e2] hover:bg-[#ece7e2]"
                         }`}
                     >
                         Income
@@ -75,10 +75,10 @@ export default function TransactionForm({ initialData, onSubmit, onCancel, loadi
                     <button
                         type="button"
                         onClick={() => handleTypeChange("expense")}
-                        className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer ${
+                        className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer border ${
                             formData.type === "expense"
-                                ? "bg-expense/15 text-expense border border-expense/30"
-                                : "bg-jet-black-900 text-black-400 border border-jet-black-800 hover:bg-jet-black-800"
+                                ? "bg-[#f4c7a8]/30 text-[#c97a45] border-[#f4c7a8]"
+                                : "bg-[#faf9f7] text-[#7c7c7c] border-[#ece7e2] hover:bg-[#ece7e2]"
                         }`}
                     >
                         Expense
@@ -88,15 +88,15 @@ export default function TransactionForm({ initialData, onSubmit, onCancel, loadi
 
             {/* Category Dropdown */}
             <div className="flex flex-col gap-1.5">
-                <label htmlFor="category" className="text-sm font-medium text-black-200">
-                    Category <span className="text-red-400 ml-1">*</span>
+                <label htmlFor="category" className="text-sm font-medium text-[#1f1f1f]">
+                    Category <span className="text-red-500 ml-1">*</span>
                 </label>
                 <select
                     id="category"
                     value={formData.category}
                     onChange={handleChange("category")}
                     required
-                    className="w-full px-4 py-2.5 bg-jet-black-900 border border-black-700 rounded-xl text-black-50 outline-none transition-all duration-200 text-sm focus:border-almond-cream-400 focus:ring-2 focus:ring-almond-cream-400/20 appearance-none cursor-pointer"
+                    className="w-full px-3 py-2.5 bg-[#faf9f7] border border-[#ece7e2] rounded-lg text-[#1f1f1f] outline-none transition-all duration-150 text-sm focus:border-[#0b516a] focus:shadow-[0_0_0_3px_rgba(11,81,106,0.1)] cursor-pointer"
                 >
                     <option value="" disabled>
                         Select a category

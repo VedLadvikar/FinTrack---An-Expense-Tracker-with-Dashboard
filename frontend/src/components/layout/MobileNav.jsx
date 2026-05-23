@@ -7,37 +7,34 @@ import {
 } from "react-icons/lu";
 
 const navItems = [
-    { path: "/", label: "Dashboard", icon: LuLayoutDashboard },
-    { path: "/transactions", label: "Transactions", icon: LuArrowLeftRight },
-    { path: "/reports", label: "Reports", icon: LuFileSpreadsheet },
-    { path: "/profile", label: "Profile", icon: LuUser },
+    { path: "/",             label: "Dashboard",    icon: LuLayoutDashboard },
+    { path: "/transactions", label: "Transactions", icon: LuArrowLeftRight  },
+    { path: "/reports",      label: "Reports",      icon: LuFileSpreadsheet },
+    { path: "/profile",      label: "Profile",      icon: LuUser            },
 ];
-
 
 export default function MobileNav() {
     return (
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-black-950/95 backdrop-blur-lg border-t border-jet-black-800/50">
-            <div className="flex items-center justify-around py-2">
-                {navItems.map((item) => (
-                    <NavLink
-                        key={item.path}
-                        to={item.path}
-                        end={item.path === "/"}
-                        className={({ isActive }) =>
-                            `flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] px-2 py-1 rounded-lg transition-all duration-150 ${
-                                isActive
-                                    ? "text-almond-cream-400 bg-jet-black-900/50"
-                                    : "text-black-600 hover:text-black-200"
-                            }`
-                        }
-                    >
-                        <item.icon className="w-5 h-5" />
-                        <span className="text-[10px] font-medium">
-                            {item.label}
-                        </span>
-                    </NavLink>
-                ))}
-            </div>
+        <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0b516a] border-t border-white/10 flex">
+            {navItems.map(({ path, label, icon: Icon }) => (
+                <NavLink
+                    key={path}
+                    to={path}
+                    end={path === "/"}
+                    className={({ isActive }) =>
+                        `flex-1 flex flex-col items-center gap-1 py-3 text-[10px] font-medium transition-colors duration-150 ${
+                            isActive ? "text-white" : "text-white/45"
+                        }`
+                    }
+                >
+                    {({ isActive }) => (
+                        <>
+                            <Icon size={18} strokeWidth={isActive ? 2.5 : 2} />
+                            <span>{label}</span>
+                        </>
+                    )}
+                </NavLink>
+            ))}
         </nav>
     );
 }

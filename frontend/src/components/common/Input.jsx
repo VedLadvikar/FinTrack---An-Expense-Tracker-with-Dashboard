@@ -1,4 +1,3 @@
-
 export default function Input({
     label,
     id,
@@ -16,10 +15,10 @@ export default function Input({
             {label && (
                 <label
                     htmlFor={id}
-                    className="text-sm font-medium text-black-200"
+                    className="text-sm font-medium text-[#1f1f1f]"
                 >
                     {label}
-                    {required && <span className="text-stone-brown-500 ml-1">*</span>}
+                    {required && <span className="text-red-500 ml-1">*</span>}
                 </label>
             )}
             <input
@@ -29,15 +28,15 @@ export default function Input({
                 onChange={onChange}
                 placeholder={placeholder}
                 required={required}
-                className={`w-full px-4 py-2 bg-jet-black-900 border rounded-lg text-black-50 placeholder-black-600 outline-none transition-all duration-150 text-sm shadow-sm ${
+                className={`ft-input ${
                     error
-                        ? "border-stone-brown-500 focus:border-stone-brown-500 focus:ring-1 focus:ring-stone-brown-500"
-                        : "border-black-700 focus:border-almond-cream-400 focus:ring-1 focus:ring-almond-cream-400 hover:border-black-600"
+                        ? "border-red-400 focus:border-red-500 focus:shadow-[0_0_0_3px_rgba(239,68,68,0.1)]"
+                        : ""
                 }`}
                 {...props}
             />
             {error && (
-                <p className="text-xs text-stone-brown-500 mt-0.5">{error}</p>
+                <p className="text-xs text-red-500 mt-0.5">{error}</p>
             )}
         </div>
     );

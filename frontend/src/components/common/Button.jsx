@@ -1,5 +1,20 @@
 import { LuLoaderCircle } from "react-icons/lu";
 
+const BASE =
+    "inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-150 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-sm active:scale-[0.97] select-none";
+
+const VARIANTS = {
+    primary:
+        "bg-[#0b516a] hover:bg-[#084b63] text-white shadow-sm px-4 py-2",
+    accent:
+        "bg-[#efaa75] hover:bg-[#c97a45] text-white shadow-sm px-4 py-2",
+    secondary:
+        "bg-[#faf9f7] hover:bg-[#ece7e2] text-[#1f1f1f] border border-[#ece7e2] shadow-sm px-4 py-2",
+    danger:
+        "bg-red-500 hover:bg-red-600 text-white shadow-sm px-4 py-2",
+    ghost:
+        "bg-transparent hover:bg-[#ece7e2] text-[#7c7c7c] hover:text-[#1f1f1f] px-3 py-1.5",
+};
 
 export default function Button({
     children,
@@ -11,26 +26,12 @@ export default function Button({
     disabled = false,
     fullWidth = false,
 }) {
-    const base =
-        "inline-flex items-center justify-center gap-2 font-medium rounded-lg px-5 py-2.5 transition-all duration-150 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-sm active:scale-[0.98] hover:scale-[1.02] hover:shadow-md";
-
-    const variants = {
-        primary:
-            "bg-almond-cream-400 hover:bg-almond-cream-500 text-white shadow-sm border border-transparent",
-        secondary:
-            "bg-jet-black-900 hover:bg-jet-black-800 text-black-50 border border-black-700 shadow-sm",
-        danger:
-            "bg-stone-brown-500 hover:bg-stone-brown-500 text-white shadow-sm border border-transparent",
-        ghost:
-            "bg-transparent hover:bg-jet-black-900 text-black-200 hover:text-black-50",
-    };
-
     return (
         <button
             type={type}
             onClick={onClick}
             disabled={disabled || loading}
-            className={`${base} ${variants[variant]} ${fullWidth ? "w-full" : ""} ${className}`}
+            className={`${BASE} ${VARIANTS[variant] ?? VARIANTS.primary} ${fullWidth ? "w-full" : ""} ${className}`}
         >
             {loading && <LuLoaderCircle className="w-4 h-4 animate-spin" />}
             {children}

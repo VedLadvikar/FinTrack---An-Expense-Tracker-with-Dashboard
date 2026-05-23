@@ -11,7 +11,7 @@ export default function Spinner({ size = "lg", className = "" }) {
     return (
         <div className={`flex items-center justify-center py-12 ${className}`}>
             <LuLoaderCircle
-                className={`${sizes[size]} text-almond-cream-400 animate-spin`}
+                className={`${sizes[size]} text-[#0b516a] animate-spin`}
             />
         </div>
     );

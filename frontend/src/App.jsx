@@ -11,15 +11,12 @@ const TransactionsPage = lazy(() => import("./pages/TransactionsPage"));
 const ReportsPage = lazy(() => import("./pages/ReportsPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 
-/**
- * Root application component with route definitions.
- * Uses React.lazy + Suspense for code splitting.
- */
+
 function App() {
     return (
         <Suspense
             fallback={
-                <div className="h-screen flex items-center justify-center bg-black-950">
+                <div className="h-screen flex items-center justify-center bg-[#f1efec]">
                     <Spinner size="lg" />
                 </div>
             }

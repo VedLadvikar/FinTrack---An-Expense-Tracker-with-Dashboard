@@ -29,16 +29,16 @@ export default function TransactionFilters({ filters, onChange, onClear }) {
         filters.endDate;
 
     return (
-        <div className="glass-card p-4 space-y-3 animate-fade-in">
+        <div className="bg-[#faf9f7] border border-[#ece7e2] rounded-xl p-4 space-y-3 shadow-[0px_4px_12px_rgba(0,0,0,0.04)]">
             {/* Search */}
             <div className="relative">
-                <LuSearch className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-black-600" />
+                <LuSearch className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#7c7c7c]" />
                 <input
                     type="text"
                     placeholder="Search transactions..."
                     value={filters.search || ""}
                     onChange={handleChange("search")}
-                    className="w-full pl-10 pr-4 py-2.5 bg-jet-black-900 border border-black-700 rounded-xl text-black-50 placeholder-black-600 outline-none text-sm focus:border-almond-cream-400 focus:ring-2 focus:ring-almond-cream-400/20 transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 bg-[#faf9f7] border border-[#ece7e2] rounded-lg text-[#1f1f1f] placeholder-[#adadad] outline-none text-sm focus:border-[#0b516a] focus:shadow-[0_0_0_3px_rgba(11,81,106,0.1)] transition-all"
                 />
             </div>
 
@@ -48,7 +48,7 @@ export default function TransactionFilters({ filters, onChange, onClear }) {
                 <select
                     value={filters.type || "all"}
                     onChange={handleChange("type")}
-                    className="px-3 py-2 bg-jet-black-900 border border-black-700 rounded-xl text-sm text-black-200 outline-none focus:border-almond-cream-400 transition-colors cursor-pointer"
+                    className="px-3 py-2 bg-[#faf9f7] border border-[#ece7e2] rounded-lg text-sm text-[#1f1f1f] outline-none focus:border-[#0b516a] transition-colors cursor-pointer"
                 >
                     <option value="all">All Types</option>
                     <option value="income">Income</option>
@@ -59,7 +59,7 @@ export default function TransactionFilters({ filters, onChange, onClear }) {
                 <select
                     value={filters.category || "all"}
                     onChange={handleChange("category")}
-                    className="px-3 py-2 bg-jet-black-900 border border-black-700 rounded-xl text-sm text-black-200 outline-none focus:border-almond-cream-400 transition-colors cursor-pointer"
+                    className="px-3 py-2 bg-[#faf9f7] border border-[#ece7e2] rounded-lg text-sm text-[#1f1f1f] outline-none focus:border-[#0b516a] transition-colors cursor-pointer"
                 >
                     <option value="all">All Categories</option>
                     {categories.map((cat) => (
@@ -74,22 +74,20 @@ export default function TransactionFilters({ filters, onChange, onClear }) {
                     type="date"
                     value={filters.startDate || ""}
                     onChange={handleChange("startDate")}
-                    className="px-3 py-2 bg-jet-black-900 border border-black-700 rounded-xl text-sm text-black-200 outline-none focus:border-almond-cream-400 transition-colors cursor-pointer"
-                    placeholder="Start Date"
+                    className="px-3 py-2 bg-[#faf9f7] border border-[#ece7e2] rounded-lg text-sm text-[#1f1f1f] outline-none focus:border-[#0b516a] transition-colors cursor-pointer"
                 />
                 <input
                     type="date"
                     value={filters.endDate || ""}
                     onChange={handleChange("endDate")}
-                    className="px-3 py-2 bg-jet-black-900 border border-black-700 rounded-xl text-sm text-black-200 outline-none focus:border-almond-cream-400 transition-colors cursor-pointer"
-                    placeholder="End Date"
+                    className="px-3 py-2 bg-[#faf9f7] border border-[#ece7e2] rounded-lg text-sm text-[#1f1f1f] outline-none focus:border-[#0b516a] transition-colors cursor-pointer"
                 />
 
                 {/* Clear Filters */}
                 {hasActiveFilters && (
                     <button
                         onClick={onClear}
-                        className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm text-black-400 hover:text-red-400 hover:bg-stone-brown-500/10 transition-all cursor-pointer"
+                        className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm text-[#7c7c7c] hover:text-red-500 hover:bg-red-50 transition-all cursor-pointer"
                     >
                         <LuX className="w-3.5 h-3.5" />
                         Clear

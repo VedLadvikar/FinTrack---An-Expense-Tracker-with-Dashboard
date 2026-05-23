@@ -17,7 +17,6 @@ const DEFAULT_FILTERS = {
     endDate: "",
 };
 
-
 export default function TransactionsPage() {
     const [transactions, setTransactions] = useState([]);
     const [pagination, setPagination] = useState(null);
@@ -131,18 +130,19 @@ export default function TransactionsPage() {
     };
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-5" style={{ animation: "fade-in 0.35s ease-out" }}>
+            {/* Header */}
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold text-black-50 mb-1">
+                    <h1 className="text-[#1f1f1f] text-2xl font-bold tracking-tight mb-0.5">
                         Transactions
                     </h1>
-                    <p className="text-sm text-black-400">
+                    <p className="text-[#7c7c7c] text-sm">
                         Manage your income and expenses
                     </p>
                 </div>
                 <Button onClick={() => setShowForm(true)}>
-                    <LuPlus className="w-4 h-4" />
+                    <LuPlus size={15} strokeWidth={2.5} />
                     Add New
                 </Button>
             </div>
@@ -166,11 +166,7 @@ export default function TransactionsPage() {
             />
 
             {/* Add Transaction Modal */}
-            <Modal
-                isOpen={showForm}
-                onClose={() => setShowForm(false)}
-                title="Add Transaction"
-            >
+            <Modal isOpen={showForm} onClose={() => setShowForm(false)} title="Add Transaction">
                 <TransactionForm
                     onSubmit={handleAdd}
                     onCancel={() => setShowForm(false)}

@@ -54,17 +54,17 @@ export default function TransactionList({
                     <button
                         onClick={() => onPageChange(pagination.page - 1)}
                         disabled={pagination.page <= 1}
-                        className="px-4 py-2 text-sm rounded-xl bg-jet-black-900 text-black-200 hover:bg-jet-black-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                        className="px-4 py-2 text-sm rounded-lg bg-[#faf9f7] border border-[#ece7e2] text-[#1f1f1f] hover:bg-[#ece7e2] disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
                     >
                         Previous
                     </button>
-                    <span className="text-sm text-black-400 px-3">
+                    <span className="text-sm text-[#7c7c7c] px-3">
                         Page {pagination.page} of {pagination.pages}
                     </span>
                     <button
                         onClick={() => onPageChange(pagination.page + 1)}
                         disabled={pagination.page >= pagination.pages}
-                        className="px-4 py-2 text-sm rounded-xl bg-jet-black-900 text-black-200 hover:bg-jet-black-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                        className="px-4 py-2 text-sm rounded-lg bg-[#faf9f7] border border-[#ece7e2] text-[#1f1f1f] hover:bg-[#ece7e2] disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
                     >
                         Next
                     </button>
