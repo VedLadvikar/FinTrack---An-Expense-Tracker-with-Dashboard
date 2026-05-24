@@ -7,12 +7,12 @@ const userService = {
     },
 
     updateProfile: async (data) => {
-        const response = await api.put("/user/Profile", data);
+        const response = await api.put("/user/profile", data);
         return response.data;
     },
 
     updatePassword: async (data) => {
-        const response = await api.put("/user/Password", data);
+        const response = await api.put("/user/password", data);
         return response.data;
     },
 };
