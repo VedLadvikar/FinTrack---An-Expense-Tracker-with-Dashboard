@@ -9,13 +9,13 @@ import reportRouter from './routes/reportRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
 
 const app = express();
-
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
       "https://fin-track-an-expense-tracker-with-d.vercel.app/"
     ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   })
 );

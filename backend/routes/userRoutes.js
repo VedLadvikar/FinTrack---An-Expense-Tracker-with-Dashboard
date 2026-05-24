@@ -5,11 +5,11 @@ import { registerRules, loginRules, profileRules } from '../middleware/validator
 
 const Router = express.Router();
 
-Router.post('/Register', registerRules, registerUser)
-Router.post('/Login', loginRules, loginUser)
+Router.post('/register', registerRules, registerUser)
+Router.post('/login', loginRules, loginUser)
 
 Router.get('/me', authMiddleware, getCurrentUser);
-Router.put('/Profile', authMiddleware, profileRules, updateProfile)
-Router.put('/Password', authMiddleware, updatePassword)
+Router.put('/profile', authMiddleware, profileRules, updateProfile)
+Router.put('/password', authMiddleware, updatePassword)
 
 export default Router; 
