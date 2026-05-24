@@ -8,17 +8,20 @@ import dashboardRouter from './routes/dashboardRoutes.js';
 import reportRouter from './routes/reportRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
 
+const corsOptions = {
+  origin: [
+    process.env.CLIENT_URL,
+    "http://localhost:5173",
+    "https://fin-track-an-expense-tracker-with-d.vercel.app/" // fallback just in case
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+
 const app = express();
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://fin-track-an-expense-tracker-with-d.vercel.app/"
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-  })
-);
+app.use(cors(corsOptions)); // This handles preflight globally in Express 5
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -37,6 +40,6 @@ app.get('/', (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port http://localhost:${process.env.PORT}`)
+app.listen(PORT, () => {
+    console.log(`Server is running on port http://localhost:${PORT}`)
 }) 
